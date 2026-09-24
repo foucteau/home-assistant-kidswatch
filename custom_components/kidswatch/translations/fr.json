@@ -1,0 +1,25 @@
+{
+  "title": "KidsWatch",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connexion KidsWatch",
+        "description": "Connectez votre compte KidsWatch. L'identifiant technique m2 est généré automatiquement par Home Assistant.",
+        "data": {
+          "country_code": "Indicatif du pays",
+          "phone": "Numéro de téléphone",
+          "password": "Mot de passe"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Téléphone ou mot de passe incorrect.",
+      "cannot_connect": "Impossible de joindre le serveur KidsWatch.",
+      "missing_fields": "Tous les champs obligatoires doivent être renseignés.",
+      "unknown": "Une erreur inattendue s'est produite. Consultez le journal Home Assistant."
+    },
+    "abort": {
+      "already_configured": "Ce compte KidsWatch est déjà configuré."
+    }
+  }
+}
