@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a reproducible KidsWatch integration problem
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include passwords, tokens, secrets, phone numbers, device IDs or precise GPS coordinates."
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+    validations:
+      required: true
+  - type: input
+    id: integration_version
+    attributes:
+      label: KidsWatch integration version
+    validations:
+      required: true
+  - type: input
+    id: watch_model
+    attributes:
+      label: Watch model
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs
+      render: text
