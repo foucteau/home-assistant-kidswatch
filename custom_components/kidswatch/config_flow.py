@@ -29,13 +29,14 @@ class KidsWatchConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             if not country_code or not phone or not password:
                 errors["base"] = "missing_fields"
             else:
-                m2 = generate_machine_m2(self.hass)
                 client = KidsWatchClient(
                     session=async_get_clientsession(self.hass),
                     phone=phone,
                     password=password,
                     country_code=country_code,
-                    m2=m2,
+                    m2=generate_machine_m2(self.hass),
+                    time_zone=str(self.hass.config.time_zone),
+                    user_lang=str(getattr(self.hass.config, "language", None) or "en").replace("-", "_"),
                 )
                 try:
                     await client.login()
@@ -55,16 +56,14 @@ class KidsWatchConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                             CONF_PHONE: phone,
                             CONF_PASSWORD: password,
                             CONF_COUNTRY_CODE: country_code,
-                            CONF_M2: m2,
+                            CONF_M2: client.m2,
                         },
                     )
 
-        country_default = (user_input or {}).get(CONF_COUNTRY_CODE, DEFAULT_COUNTRY_CODE)
-        phone_default = (user_input or {}).get(CONF_PHONE, "")
-        password_default = (user_input or {}).get(CONF_PASSWORD, "")
+        values = user_input or {}
         schema = vol.Schema({
-            vol.Required(CONF_COUNTRY_CODE, default=country_default): str,
-            vol.Required(CONF_PHONE, default=phone_default): str,
-            vol.Required(CONF_PASSWORD, default=password_default): str,
+            vol.Required(CONF_COUNTRY_CODE, default=values.get(CONF_COUNTRY_CODE, DEFAULT_COUNTRY_CODE)): str,
+            vol.Required(CONF_PHONE, default=values.get(CONF_PHONE, "")): str,
+            vol.Required(CONF_PASSWORD, default=values.get(CONF_PASSWORD, "")): str,
         })
         return self.async_show_form(step_id="user", data_schema=schema, errors=errors)
