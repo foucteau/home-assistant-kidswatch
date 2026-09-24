@@ -17,6 +17,10 @@ INIT_VERSION = "0.1.8"
 PLATFORMS = [Platform.SENSOR, Platform.DEVICE_TRACKER, Platform.BUTTON]
 
 
+def _language(hass: HomeAssistant) -> str:
+    return str(getattr(hass.config, "language", None) or "en").replace("-", "_")
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up KidsWatch from a config entry."""
     _LOGGER.info("KidsWatch integration %s loaded (API %s)", INIT_VERSION, API_VERSION)
@@ -33,12 +37,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         password=entry.data[CONF_PASSWORD],
         country_code=entry.data[CONF_COUNTRY_CODE],
         m2=machine_m2,
+        time_zone=str(hass.config.time_zone),
+        user_lang=_language(hass),
     )
     await client.login()
 
     coordinator = KidsWatchCoordinator(hass, client)
     await coordinator.async_config_entry_first_refresh()
-
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][entry.entry_id] = {"client": client, "coordinator": coordinator}
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
