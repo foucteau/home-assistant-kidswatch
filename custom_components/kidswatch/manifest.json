@@ -1,12 +1,14 @@
 {
   "domain": "kidswatch",
   "name": "KidsWatch",
-  "version": "0.1.8",
-  "codeowners": ["@foucteau"],
+  "codeowners": [
+    "@foucteau"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/foucteau/home-assistant-kidswatch",
-  "issue_tracker": "https://github.com/foucteau/home-assistant-kidswatch/issues",
   "integration_type": "hub",
   "iot_class": "cloud_polling",
-  "requirements": []
+  "issue_tracker": "https://github.com/foucteau/home-assistant-kidswatch/issues",
+  "requirements": [],
+  "version": "0.1.8"
 }
