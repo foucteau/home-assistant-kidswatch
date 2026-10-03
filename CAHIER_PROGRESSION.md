@@ -7,7 +7,7 @@ Mise à jour : 3 octobre 2026. Version examinée : 0.1.8, commit 1f26fa7769f8c66
 Les notifications « 4 annotations » ne représentent pas quatre bugs distincts. Trois causes bloquantes se répètent dans tous les journaux.
 
 ## Erreurs et suivi
-- Hassfest : MANIFEST, champs non triés. Correction : domain, name, puis les autres champs par ordre alphabétique. Correction publiée avec ce document ; résultat GitHub Actions à vérifier.
+- Hassfest : MANIFEST, champs non triés. Correction : domain, name, puis les autres champs par ordre alphabétique. Correction publiée et confirmée : Hassfest réussit dans l'exécution 37088856869.
 - HACS : description du dépôt absente. Encore à corriger dans les paramètres du dépôt. Description proposée : "Unofficial Home Assistant integration for KidsWatch watches: GPS location, battery, steps and on-demand location refresh."
 - HACS : aucun topic valide. Encore à corriger dans les paramètres du dépôt. Topics proposés : home-assistant, hacs, custom-integration, kidswatch, gps.
 - Avertissement : actions/checkout@v4 utilise Node.js 20 obsolète. Passage à v5, dont action.yml utilise node24.
@@ -25,7 +25,7 @@ Analyse syntaxique de tous les fichiers Python et lecture de tous les JSON : ré
 Ordre du manifeste vérifié localement.
 Les journaux historiques Hassfest ne signalent aucune autre erreur ; HACS réussit les sept autres contrôles.
 Pas de test de connexion réel à KidsWatch : aucun compte ni montre disponible dans cet environnement.
-Pas d'exécution locale complète de Hassfest/HACS : Docker absent. La nouvelle exécution GitHub fait foi.
+Pas d'exécution locale complète de Hassfest/HACS : Docker absent. Exécution GitHub 37088856869, commit 2b0a9e42813ed33a05407863a5ed6b802179e6bb : Hassfest réussi, HACS échoue uniquement sur description et topics (2/9).
 
 ## Prochaines étapes API
 1. Compléter description et topics ; vérifier que les deux jobs deviennent verts.
@@ -48,4 +48,3 @@ Pas d'exécution locale complète de Hassfest/HACS : Docker absent. La nouvelle 
 - https://github.com/foucteau/home-assistant-kidswatch/actions/runs/36000890168
 - https://github.com/foucteau/home-assistant-kidswatch/actions/runs/36000886548
 - https://github.com/foucteau/home-assistant-kidswatch/actions/runs/36000888034
-
