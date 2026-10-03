@@ -8,8 +8,8 @@ Les notifications « 4 annotations » ne représentent pas quatre bugs distincts
 
 ## Erreurs et suivi
 - Hassfest : MANIFEST, champs non triés. Correction : domain, name, puis les autres champs par ordre alphabétique. Correction publiée et confirmée : Hassfest réussit dans l'exécution 37088856869.
-- HACS : description du dépôt absente. Encore à corriger dans les paramètres du dépôt. Description proposée : "Unofficial Home Assistant integration for KidsWatch watches: GPS location, battery, steps and on-demand location refresh."
-- HACS : aucun topic valide. Encore à corriger dans les paramètres du dépôt. Topics proposés : home-assistant, hacs, custom-integration, kidswatch, gps.
+- HACS : description du dépôt absente. Corrigée dans les paramètres du dépôt le 3 octobre 2026. Description enregistrée : "Unofficial Home Assistant integration for KidsWatch watches: GPS location, battery, steps and on-demand location refresh."
+- HACS : aucun topic valide. Corrigé dans les paramètres du dépôt le 3 octobre 2026. Topics enregistrés : home-assistant, hacs, custom-integration, kidswatch, gps.
 - Avertissement : actions/checkout@v4 utilise Node.js 20 obsolète. Passage à v5, dont action.yml utilise node24.
 - Le workflow HACS ne publiera pas de commentaires automatiques de PR (comment: false). Les résultats restent dans GitHub Actions.
 Aucune vérification HACS n'est désactivée pour masquer les erreurs.
@@ -25,10 +25,10 @@ Analyse syntaxique de tous les fichiers Python et lecture de tous les JSON : ré
 Ordre du manifeste vérifié localement.
 Les journaux historiques Hassfest ne signalent aucune autre erreur ; HACS réussit les sept autres contrôles.
 Pas de test de connexion réel à KidsWatch : aucun compte ni montre disponible dans cet environnement.
-Pas d'exécution locale complète de Hassfest/HACS : Docker absent. Exécution GitHub 37088856869, commit 2b0a9e42813ed33a05407863a5ed6b802179e6bb : Hassfest réussi, HACS échoue uniquement sur description et topics (2/9).
+Pas d'exécution locale complète de Hassfest/HACS : Docker absent. Exécution GitHub 37088856869, commit 2b0a9e42813ed33a05407863a5ed6b802179e6bb : Première tentative : Hassfest réussi, HACS échoue sur description et topics (2/9). Après correction des métadonnées, tentative 2 : Hassfest et HACS réussis.
 
 ## Prochaines étapes API
-1. Compléter description et topics ; vérifier que les deux jobs deviennent verts.
+1. Terminé : description et topics complétés ; les deux jobs sont verts (exécution 37088856869, tentative 2).
 2. Tester sur Home Assistant : connexion, découverte des montres, valeurs des capteurs et GPS.
 3. Tester le bouton de position, le délai de réponse et le rafraîchissement périodique.
 4. Vérifier expiration de session et reconnexion, notamment après connexion depuis l'application mobile.
